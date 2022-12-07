@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import streamlit as st
 import tensorflow as tf
 import numpy as np
@@ -12,10 +13,9 @@ cover_path = os.path.join(base_dir, 'xray_illustration.png')
 image = Image.open(cover_path)
 st.image(image, use_column_width=True)
 
-model = tf.keras.models.load_model('/home/amin/Documents/mini-project-cnn/model')
+model = tf.keras.models.load_model(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'model'))
 
 def predict_class(image):
-
 	img = load_img(image, target_size=(128, 128), color_mode='grayscale')
 	x = img_to_array(img)
 	x = np.expand_dims(x, axis=0)
@@ -24,8 +24,6 @@ def predict_class(image):
 	prediction = model.predict(images)
 
 	return prediction
-
-
 
 
 st.info('Upload DDSM scan for getting result ...')
