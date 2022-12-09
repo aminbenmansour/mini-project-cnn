@@ -47,9 +47,9 @@ else:
 
 	st.image(target_image, caption="Input Image", width = 400)
 	pred = predict_class(target_path, model)
-	class_names = ['CAN', 'BEN', 'NOR']
+	class_names = ['BEN', 'CAN', 'NOR']
 	result = class_names[np.argmax(pred)]
-	output = 'The image is a ' + result
+	output = 'The tumor is of type ' + result
 	slot.text('Done')
 	st.success(output)
 
