@@ -1,5 +1,5 @@
 # mini-project-cnn
-academic project
+We are building a multi-class classification neural network aiming to classify tumor as benign (BEN), malignant (CAN) or normal (NOR).
 
 ## Dataset Structure
 In order to `flow_from_directory` method of the `ImageDataGenerator` data should be structured this way
