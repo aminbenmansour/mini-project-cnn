@@ -45,6 +45,8 @@ Data is less complex is having fewer dimensions or features then neural networks
 ## Model training
 We will define steps for training our neural network.
 ### Dataset Structure
+[Link to dataset](https://drive.google.com/file/d/10bJ75CJnSQSgya0HXKP3difeiKChxfYi/view)
+
 In order to `flow_from_directory` method of the `ImageDataGenerator` data should be structured this way
 ```
 |- ddsm
@@ -63,3 +65,10 @@ In order to `flow_from_directory` method of the `ImageDataGenerator` data should
  ### Feeding data
  In order to accelerate the learning speed we used `steps_per_epoch` and `validation_steps`parameters to treat data in batches. We also passed validation data to make sure we do not have overfitting. We set `verbose=1` to visualize metrics for each epoch.
  
+ ## Model performance estimation
+ 
+ In order to estimate model performance, we did the following steps:
+  * Plotted the epochs' history (`loss_function` and `accuracy`) for both training and validation datasets.
+  * Plotted confusion matrix
+  * Printed the overall accuracy
+  * Printed classification report
