@@ -1,20 +1,5 @@
 # mini-project-cnn
 We are building a multi-class classification neural network aiming to classify tumor as benign (BEN), malignant (CAN) or normal (NOR).
-
-## Dataset Structure
-In order to `flow_from_directory` method of the `ImageDataGenerator` data should be structured this way
-```
-|- ddsm
-  |- train
-    |- BEN
-    |- CAN
-    |- NOR
-  |- validation
-    |- BEN
-    |- CAN
-    |- NOR
- ```  
- We then construct two BatchDataset for train and validation directories.
  
  ## Model architecture definition
  Convolutional Neural Network (CNN) is the suitable architecture for treating image datasets. Our choices are justified referring to [this article](https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939) 
@@ -56,3 +41,25 @@ Gives the actual output of the probability of an image belonging to each of the 
  The output layer contains three nodes (one for each class). The softmax acivation function normalize the output of a network to a probability distribution over predicted output classes
  ### How many hidden units should each layer have ?
 Data is less complex is having fewer dimensions or features then neural networks we use lesser units for hidden layers with 16 to 64 kernels to convolutions and 128 node for hidden layer. The output layer must contain 3 and only three nodes as we have three classes.
+
+## Model training
+We will define steps for training our neural network.
+### Dataset Structure
+In order to `flow_from_directory` method of the `ImageDataGenerator` data should be structured this way
+```
+|- ddsm
+  |- train
+    |- BEN
+    |- CAN
+    |- NOR
+  |- validation
+    |- BEN
+    |- CAN
+    |- NOR
+ ```  
+ We then construct two `BatchDataset` objects for train and validation directories. Each BatchDataset object contains normalized objects and one-hot-encoded labels.
+ ### Dealing with imbalanced data
+ Data is remarkably imbalanced so to prevent reducing data we penalized the model differently for each class depending on how much data we have for each one.
+ ### Feeding data
+ In order to accelerate the learning speed we used `steps_per_epoch` and `validation_steps`parameters to treat data in batches. We also passed validation data to make sure we do not have overfitting. We set `verbose=1` to visualize metrics for each epoch.
+ 
