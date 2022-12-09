@@ -50,3 +50,9 @@ Helps to map the representation between the input and the output. It can be comp
  * Output layer (1)
 
 Gives the actual output of the probability of an image belonging to each of the three classes.
+ ### What should be the activation function of each layer ?
+ Negative weights affects badly the neural network, ReLu function eliminates negative weights by setting them to zero so we use it for all layers except for the output layer.
+ 
+ The output layer contains three nodes (one for each class). The softmax acivation function normalize the output of a network to a probability distribution over predicted output classes
+ ### How many hidden units should each layer have ?
+Data is less complex is having fewer dimensions or features then neural networks we use lesser units for hidden layers with 16 to 64 kernels to convolutions and 128 node for hidden layer. The output layer must contain 3 and only three nodes as we have three classes.
