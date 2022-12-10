@@ -1,7 +1,20 @@
 # mini-project-cnn
 We are building a multi-class classification neural network aiming to classify tumor as benign (BEN), malignant (CAN) or normal (NOR).
- 
- ## Model architecture definition
+## Tech stack
+listed libraries below were used to build the project.
+* streamlit: a quick way to build application interface for machine learning models
+* tensorflow and keras: for building and training the model
+## Usage
+1. make a virtual environment activate it and install dependencies by running in `app` directory
+```
+python3 -m venv env && source .env/bin/acivate && pip3 install -r requirements.txt
+```
+2. run notebook `tumor_classifier.ipynb` in `notebooks` directory to generate `model` directory
+3. run application with this command in `app` folder
+```
+streamlit run app.py
+```
+## Model architecture definition
  Convolutional Neural Network (CNN) is the suitable architecture for treating image datasets. Our choices are justified referring to [this article](https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939) 
  ### How many convolutional layers do we want ?
  A CNN typically has three types of layers: a convolutional layer, a pooling layer, and a fully connected layer.
